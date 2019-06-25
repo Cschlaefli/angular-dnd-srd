@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { SpellListComponent } from './spell-list/spell-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SpellDetailComponent } from './spell-detail/spell-detail.component';
+import { SpellLevel } from './level.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpellListComponent,
     MessagesComponent,
-    SpellDetailComponent
+    SpellDetailComponent,
+    SpellLevel
   ],
   imports: [
     BrowserModule,

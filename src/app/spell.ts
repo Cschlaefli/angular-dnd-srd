@@ -7,10 +7,12 @@ export class Spell {
     casting_time? : string;
     classes? : string[];
     components? : string[];
-    concentration? : boolean;
+    concentration? : string;
     desc? : string;
     duration? : string;
     higher_level? : string;
     level? : number;
-    material? : string; 
+    material? : string;
+    subclasses? : string[];
+    school? : string;
 }

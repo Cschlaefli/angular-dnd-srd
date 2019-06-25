@@ -18,12 +18,14 @@ export class SpellDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getSpell();
   }
   
   getSpell(): void {
     const id = this.route.snapshot.paramMap.get('_id');
-    this.spellService.getSpell(id)
-      .subscribe(s => this.spell = s['data']);
+    if (id) 
+      this.spellService.getSpell(id)
+        .subscribe(s => this.spell = s['data']);
   }
 
 }

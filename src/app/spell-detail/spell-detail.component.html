@@ -1,23 +1,63 @@
-<div *ngIf="spell">
-  <ngb-accordion>
-    <ngb-panel title="{{spell.name}}">
+<div *ngIf="spell" class="sticky-top p-3">
+  <ngb-accordion activeIds="current-panel">
+    <ngb-panel id=current-panel>
+      <ng-template ngbPanelHeader>
+        <div class="d-flex align-items-center justify-content-between">
+          <button ngbPanelToggle class="btn btn-link p-0">{{spell.name}}</button>
+          <div>
+            <button class="close" (click)="spell = null">X</button>
+          </div>
+        </div>
+      </ng-template>
       <ng-template ngbPanelContent>
-      <div class="row text-left">
-          <label> Level : </label>
-          {{spell.level}}
-      </div>
       <div class="row">
-          <label> Classes :</label>
-          <div *ngFor="let class of spell.classes">
-            <span class="m-1">{{class}}</span>
+        <div class="col-auto">
+          <div class="row">
+            {{spell.level | spellLevel}}
           </div>
-          <div class="text-left">
-            <p>{{spell.desc}}</p>
+          <div class="row">
+            <h5>{{spell.school}}</h5>
           </div>
-          <div class="text-left">
-            <label> Material : </label>
-            <p>{{spell.material}}</p>
+          <div *ngFor="let class of spell.classes" class="row">
+          <p>{{class}}</p>
           </div>
+          <div *ngFor="let class of spell.subclasses" class="row">
+          <p>{{class}}</p>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="row">
+            <div class="col-auto">
+              <label>Casting Time : </label>
+              {{spell.casting_time}}
+            </div>
+            <div class="col-auto">
+              <label>Range : </label>
+              {{spell.range}}
+            </div>
+            <div class="col-auto">
+              <label *ngFor="let component of spell.components">
+                {{component}} 
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-auto">
+              <label>Duration : </label>
+              {{spell.duration}}
+            </div>
+            <div class="col-auto">
+              <label>Concentration : </label>
+              {{spell.concentration}}
+            </div>
+            <div class="col-auto">
+              <div *ngIf="spell.material">
+              <label>Material :</label>
+              {{spell.material}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
      </ng-template>
     </ngb-panel>
