@@ -1,0 +1,26 @@
+<ngb-pagination class="d-flex justify-content-center"
+    [collectionSize]="collectionSize" 
+    [pageSize]="pageSize"
+    [(page)]="page"
+    (pageChange)="loadPage($event)"
+    [maxSize]= "5"
+    [rotate]="true"
+    [boundaryLinks]="true">
+</ngb-pagination>
+
+<hr/>
+<div class="row">
+  <div class="col">
+    <div *ngFor="let spell of spells" class="row">
+      <div class="col-md-2 text-left"></div>
+      <div class="col-md text-left"
+      (click)="onSelect(spell)">
+        {{spell.name}}
+        </div>
+        <hr>
+      </div>
+  </div>
+  <div class="col">
+    <app-spell-detail [spell]="selectedSpell"></app-spell-detail>
+  </div>
+</div>

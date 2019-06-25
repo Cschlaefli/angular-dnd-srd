@@ -1,21 +1,46 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+        <header class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg">
+     
+            <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = true">ng-bootstrap</a>
+     
+            <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+                    [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+     
+            <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
+              <!--
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" [routerLinkActive]="['active']">
+                        <a class="nav-link" [routerLink]="['/getting-started']" (click)="navbarCollapsed = true">Getting Started</a>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['active']">
+                        <a class="nav-link" [routerLink]="['/components']" (click)="navbarCollapsed = true">Components</a>
+                    </li>
+                    <li class="nav-item d-lg-none" *ngFor="let component of components" [routerLinkActive]="['active']">
+                        <a class="nav-link" [routerLink]="['/components', component.toLowerCase()]" (click)="navbarCollapsed = true">{{ component }}</a>
+                    </li>
+                </ul>
+     
+                <span class="github-buttons d-none d-lg-inline">
+            <a class="github-button"
+               href="https://github.com/ng-bootstrap/ng-bootstrap"
+               target="_blank"
+               data-size="large"
+               data-show-count="true"
+               data-count-aria-label="# stargazers on GitHub"
+               aria-label="Star ng-bootstrap/ng-bootstrap on GitHub">Star</a>
+              -->
+            </div>
+        </header>
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <br/>
+  <app-spell-list></app-spell-list>
+  <app-messages></app-messages>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
 <router-outlet></router-outlet>
