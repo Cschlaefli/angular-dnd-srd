@@ -1,6 +1,6 @@
 export class Spell {
-    _id : string;
-    name : string;
+    _id? : string;
+    name? : string;
     page? : string;
     range? : string;
     ritual? : boolean;

@@ -13,10 +13,7 @@
       <div class="row">
         <div class="col-auto">
           <div class="row">
-            {{spell.level | spellLevel}}
-          </div>
-          <div class="row">
-            <h5>{{spell.school}}</h5>
+            <strong>{{spell.level | spellLevel}}</strong> ({{spell.school}})
           </div>
           <div *ngFor="let class of spell.classes" class="row">
           <p>{{class}}</p>
@@ -25,7 +22,7 @@
           <p>{{class}}</p>
           </div>
         </div>
-        <div class="col-auto">
+        <div class="col">
           <div class="row">
             <div class="col-auto">
               <label>Casting Time : </label>

@@ -23,6 +23,9 @@ export class SpellListComponent implements OnInit {
     this.getSpells(this.page);
   }
 
+  reload(){
+    this.getSpells(this.page);
+  }
   loadPage(page)
   {
     this.getSpells(page);
@@ -40,4 +43,6 @@ export class SpellListComponent implements OnInit {
   onSelect(spell) : void {
     this.selectedSpell = spell;
   }
+
+
 }
