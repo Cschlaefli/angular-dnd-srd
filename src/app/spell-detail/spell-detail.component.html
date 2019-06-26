@@ -15,6 +15,11 @@
           <div class="row">
             <strong>{{spell.level | spellLevel}}</strong> ({{spell.school}})
           </div>
+          <div class="col-auto">
+            <label *ngFor="let component of spell.components"><strong>
+              {{component}} <br/>
+            </strong></label>
+          </div>
           <div *ngFor="let class of spell.classes" class="row">
           <p>{{class}}</p>
           </div>
@@ -25,22 +30,17 @@
         <div class="col">
           <div class="row">
             <div class="col-auto">
-              <label>Casting Time : </label>
+              <label class="text-justify">Casting Time : </label>
               {{spell.casting_time}}
             </div>
             <div class="col-auto">
               <label>Range : </label>
               {{spell.range}}
             </div>
-            <div class="col-auto">
-              <label *ngFor="let component of spell.components">
-                {{component}} 
-              </label>
-            </div>
           </div>
           <div class="row">
             <div class="col-auto">
-              <label>Duration : </label>
+              <label class="text-justify">Duration : </label>
               {{spell.duration}}
             </div>
             <div class="col-auto">
@@ -53,6 +53,11 @@
               {{spell.material}}
               </div>
             </div>
+          </div>
+          <div class="row">
+            <p class="text-justify">{{spell.desc}}</p>
+            <br>
+            <p class="text-justify" *ngIf="spell.higher_level">Higher Levels: {{spell.higher_level}} </p>
           </div>
         </div>
       </div>

@@ -12,8 +12,8 @@ import { APP_BASE_HREF } from '@angular/common';
 export class SpellsService {
   private spellUrl = 'spells';
   private spellFilter = '';
-  private url = '';
-  _observableSpells = new BehaviorSubject<object>({_meta : []});
+
+  observableSpells$ = new BehaviorSubject<object>({_meta : []});
   observableSpells: Observable<object>;
   constructor(
     @Inject(APP_BASE_HREF) private baseHref: string,
@@ -40,17 +40,17 @@ export class SpellsService {
 
   setFilter(filter: Spell) {
     let ret = '';
-    let total_values = 0;
+    let totalValue = 0;
     for (const key in filter) {
       if (filter[key]) {
-        if (total_values > 0) {
+        if (totalValue > 0) {
           ret += ',';
         }
         ret += '"' + key + '":' + filter[key];
-        total_values += 1;
+        totalValue += 1;
       }
     }
-    if (ret != '') {
+    if (ret !== '') {
       this.spellFilter = '&where={' + ret + '}';
     } else {
       this.spellFilter = ret;

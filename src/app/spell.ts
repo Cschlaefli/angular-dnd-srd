@@ -24,6 +24,6 @@ export class MetaInformation {
 }
 
 export class SpellResponse {
-    _meta: MetaInformation;
+    _meta: [];
     _items: Spell[];
 }
