@@ -42,11 +42,11 @@ export class SpellsService {
     let ret = '';
     let totalValue = 0;
     for (const key in filter) {
-      if (filter[key]) {
+      if (filter[key] !== null) {
         if (totalValue > 0) {
           ret += ',';
         }
-        ret += '"' + key + '":' + filter[key];
+        ret += `"${key}":${filter[key]}`
         totalValue += 1;
       }
     }

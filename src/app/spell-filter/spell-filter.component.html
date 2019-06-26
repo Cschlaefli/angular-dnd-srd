@@ -1,3 +1,7 @@
-<input [(ngModel)]="filter.level" placeholder="level">
+<label for="level">Level : </label>
+    <select [(ngModel)]="filter.level">
+        <option *ngFor="let lvl of levels" [ngValue]="lvl.value">{{lvl.name}}</option>
+    </select>
+
 
 <button class="btn btn-primary" (click)="applyFilter()">Apply</button>
