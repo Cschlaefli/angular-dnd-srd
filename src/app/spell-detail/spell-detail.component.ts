@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Spell} from "../spell"
+import { Spell} from '../spell';
 import { ActivatedRoute } from '@angular/router';
 import { SpellsService } from '../spells.service';
 
@@ -10,22 +10,23 @@ import { SpellsService } from '../spells.service';
 })
 export class SpellDetailComponent implements OnInit {
 
-  @Input() spell : Spell;
+  @Input() spell: Spell;
 
   constructor(
-    private route : ActivatedRoute,
-    private spellService : SpellsService
+    private route: ActivatedRoute,
+    private spellService: SpellsService
   ) { }
 
   ngOnInit() {
     this.getSpell();
   }
-  
+
   getSpell(): void {
     const id = this.route.snapshot.paramMap.get('_id');
-    if (id) 
+    if (id) {
       this.spellService.getSpell(id)
-        .subscribe(s => this.spell = s['data']);
+        .subscribe(s => this.spell = s);
+    }
   }
 
 }

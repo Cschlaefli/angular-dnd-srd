@@ -9,18 +9,17 @@ import { SpellsService } from '../spells.service';
 })
 export class SpellFilterComponent implements OnInit {
 
-  @Input() filter : Spell;
+  @Input() filter: Spell;
   @Output() filtered = new EventEmitter();
   constructor(
-    private spellService : SpellsService
+    private spellService: SpellsService
   ) { }
 
   ngOnInit() {
-    this.filter = {}
+    this.filter = {};
   }
 
-  applyFilter()
-  {
+  applyFilter() {
     this.spellService.setFilter(this.filter);
     this.filtered.emit();
   }
